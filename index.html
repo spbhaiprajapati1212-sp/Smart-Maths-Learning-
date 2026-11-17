@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Maths Learning</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">📚 Smart Maths</div>
+  <div class="tagline">खेल-खेल में गणित सीखें!</div>
+</header>
+
+<section class="hero">
+  <h1>नमस्ते बच्चों! 👋</h1>
+  <p>आइए आज गणित को आसान और मजेदार बनाते हैं।</p>
+  <div class="hero-icon">🧮</div>
+</section>
+
+<main class="container">
+
+  <section class="stats">
+    <div class="stat-card">
+      <span>📝</span>
+      <h2 id="total">0</h2>
+      <p>कुल सवाल</p>
+    </div>
+    <div class="stat-card">
+      <span>⭐</span>
+      <h2 id="correct">0</h2>
+      <p>सही जवाब</p>
+    </div>
+    <div class="stat-card">
+      <span>🎯</span>
+      <h2 id="wrong">0</h2>
+      <p>गलत जवाब</p>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>📖 पहाड़े सीखें (1 से 20)</h2>
+    <p>अपना पहाड़ा चुनिए और पढ़िए।</p>
+
+    <select id="tableSelect"></select>
+
+    <div id="tableResult" class="table-result"></div>
+
+    <button class="btn blue" onclick="readTable()">
+      🔊 पहाड़ा सुनें
+    </button>
+  </section>
+
+  <section class="card">
+    <h2>➕ गणित का अभ्यास</h2>
+    <p>अपना गणित का विषय चुनिए।</p>
+
+    <div class="operations">
+      <button class="op-btn active" data-op="+" onclick="chooseOperation('+',this)">➕ जोड़</button>
+      <button class="op-btn" data-op="-" onclick="chooseOperation('-',this)">➖ घटाना</button>
+      <button class="op-btn" data-op="*" onclick="chooseOperation('*',this)">✖️ गुणा</button>
+      <button class="op-btn" data-op="/" onclick="chooseOperation('/',this)">➗ भाग</button>
+    </div>
+
+    <div class="question-box">
+      <div class="question-label">आपका सवाल है:</div>
+      <h1 id="question">5 + 3 = ?</h1>
+
+      <input type="number" id="answer" placeholder="अपना जवाब लिखें">
+
+      <button class="btn green" onclick="checkAnswer()">उत्तर चेक करें</button>
+      <button class="btn blue" onclick="speakQuestion()">🔊 सवाल सुनें</button>
+
+      <div id="feedback" class="feedback">
+        चलिए शुरू करते हैं! 😊
+      </div>
+
+      <button class="btn orange" onclick="newQuestion()">अगला सवाल ➜</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🤖 आपका AI Maths Teacher</h2>
+    <div class="teacher">
+      <div class="robot">🤖</div>
+      <div>
+        <h3>मैथ्स टीचर</h3>
+        <p id="teacherMessage">नमस्ते बच्चे! मैं तुम्हें गणित सिखाने में मदद करूंगा।</p>
+      </div>
+    </div>
+    <button class="btn purple" onclick="speakTeacher()">🔊 टीचर की बात सुनें</button>
+  </section>
+
+  <section class="card">
+    <h2>🏆 अपना Maths Quiz खेलें</h2>
+    <p>सवालों के सही जवाब देकर अपना स्कोर बढ़ाइए।</p>
+    <button class="btn orange" onclick="newQuestion()">क्विज शुरू करें 🎮</button>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Smart Maths Learning</p>
+  <p>Made for Young Learners ❤️</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
