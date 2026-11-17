@@ -1,15 +1,35 @@
 
+/* =================================
+   SMART MATHS LEARNING
+   Complete Responsive Design
+================================= */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f5ff;
-  color: #26334a;
+:root {
+  --primary: #5146e5;
+  --secondary: #1599d4;
+  --green: #16a36a;
+  --orange: #f39a28;
+  --purple: #7951c9;
+  --text: #26334a;
+  --muted: #667085;
+  --background: #f0f5ff;
+  --white: #ffffff;
 }
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* HEADER */
 
 .header {
   background: linear-gradient(120deg, #5146e5, #1599d4);
@@ -19,17 +39,19 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 
 .logo {
-  font-size: 25px;
+  font-size: 26px;
   font-weight: bold;
 }
 
 .tagline {
   font-size: 15px;
 }
+
+/* HERO */
 
 .hero {
   text-align: center;
@@ -40,10 +62,12 @@ body {
 .hero h1 {
   font-size: 32px;
   margin-bottom: 12px;
+  color: #3730a3;
 }
 
 .hero p {
   font-size: 17px;
+  color: #475569;
 }
 
 .hero-icon {
@@ -51,11 +75,56 @@ body {
   margin-top: 15px;
 }
 
+/* MAIN CONTAINER */
+
 .container {
-  max-width: 900px;
+  max-width: 950px;
   margin: 25px auto;
   padding: 0 15px;
 }
+
+/* CARDS */
+
+.card {
+  background: var(--white);
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 22px;
+  box-shadow: 0 5px 20px #0000000b;
+}
+
+.card h2 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card > p {
+  color: var(--muted);
+  margin-bottom: 17px;
+}
+
+/* LANGUAGE SELECTOR */
+
+.language-card {
+  border: 2px solid #e0e7ff;
+  background: linear-gradient(120deg, #ffffff, #f5f3ff);
+}
+
+#languageSelect {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--primary);
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #312e81;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+}
+
+/* STATISTICS */
 
 .stats {
   display: grid;
@@ -77,7 +146,7 @@ body {
 }
 
 .stat-card h2 {
-  color: #5146e5;
+  color: var(--primary);
   margin: 8px 0;
 }
 
@@ -85,25 +154,10 @@ body {
   font-size: 13px;
 }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 18px;
-  margin-bottom: 22px;
-  box-shadow: 0 5px 20px #0000000b;
-}
+/* INPUTS AND SELECTS */
 
-.card h2 {
-  font-size: 22px;
-  margin-bottom: 12px;
-}
-
-.card > p {
-  color: #667085;
-  margin-bottom: 17px;
-}
-
-select, input {
+select,
+input {
   width: 100%;
   padding: 14px;
   border: 2px solid #dce4f0;
@@ -111,11 +165,16 @@ select, input {
   font-size: 17px;
   margin: 10px 0;
   outline: none;
+  background: white;
+  color: var(--text);
 }
 
-select:focus, input:focus {
-  border-color: #5146e5;
+select:focus,
+input:focus {
+  border-color: var(--primary);
 }
+
+/* MULTIPLICATION TABLE */
 
 .table-result {
   background: #f0f5ff;
@@ -126,7 +185,10 @@ select:focus, input:focus {
   font-size: 19px;
   line-height: 2;
   font-weight: bold;
+  color: #3730a3;
 }
+
+/* OPERATIONS */
 
 .operations {
   display: grid;
@@ -138,17 +200,25 @@ select:focus, input:focus {
 .op-btn {
   border: 0;
   background: #eef2ff;
+  color: #3730a3;
   padding: 14px 5px;
   border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
   font-size: 14px;
+  transition: 0.2s;
 }
 
 .op-btn.active {
-  background: #5146e5;
+  background: var(--primary);
   color: white;
 }
+
+.op-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* QUESTION BOX */
 
 .question-box {
   background: #f8faff;
@@ -158,14 +228,17 @@ select:focus, input:focus {
 }
 
 .question-label {
-  color: #667085;
+  color: var(--muted);
+  font-size: 16px;
 }
 
 .question-box h1 {
   font-size: 42px;
-  color: #5146e5;
+  color: var(--primary);
   margin: 20px 0;
 }
+
+/* BUTTONS */
 
 .btn {
   width: 100%;
@@ -185,10 +258,27 @@ select:focus, input:focus {
   transform: translateY(-2px);
 }
 
-.blue { background: #2588df; }
-.green { background: #16a36a; }
-.orange { background: #f39a28; }
-.purple { background: #7951c9; }
+.btn:active {
+  transform: scale(0.98);
+}
+
+.blue {
+  background: #2588df;
+}
+
+.green {
+  background: var(--green);
+}
+
+.orange {
+  background: var(--orange);
+}
+
+.purple {
+  background: var(--purple);
+}
+
+/* FEEDBACK */
 
 .feedback {
   padding: 14px;
@@ -209,6 +299,8 @@ select:focus, input:focus {
   color: #b91c1c;
 }
 
+/* TEACHER */
+
 .teacher {
   display: flex;
   align-items: center;
@@ -221,12 +313,19 @@ select:focus, input:focus {
 
 .robot {
   font-size: 55px;
+  flex-shrink: 0;
+}
+
+.teacher h3 {
+  color: #5146e5;
 }
 
 .teacher p {
   margin-top: 8px;
   line-height: 1.6;
 }
+
+/* FOOTER */
 
 footer {
   background: #202b48;
@@ -236,18 +335,43 @@ footer {
   line-height: 2;
 }
 
-@media(max-width: 600px) {
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 600px) {
+
   .header {
     flex-direction: column;
     text-align: center;
+    padding: 20px 12px;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .hero {
+    padding: 30px 12px;
   }
 
   .hero h1 {
     font-size: 26px;
   }
 
+  .hero p {
+    font-size: 15px;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
   .card {
     padding: 18px;
+    border-radius: 14px;
+  }
+
+  .card h2 {
+    font-size: 19px;
   }
 
   .operations {
@@ -264,5 +388,18 @@ footer {
 
   .question-box h1 {
     font-size: 35px;
+  }
+
+  .teacher {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .robot {
+    font-size: 42px;
+  }
+
+  .btn {
+    font-size: 15px;
   }
 }
