@@ -4,108 +4,292 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Maths Learning</title>
+
+  <title>Smart Maths Learning - AI Teacher</title>
+
+  <meta name="description" content="Learn Maths in Hindi and English with Smart Maths Learning AI Teacher.">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- HEADER -->
 <header class="header">
-  <div class="logo">📚 Smart Maths</div>
-  <div class="tagline">खेल-खेल में गणित सीखें!</div>
+
+  <div class="logo">
+    📚 Smart Maths
+  </div>
+
+  <div class="tagline">
+    खेल-खेल में गणित सीखें!
+  </div>
+
 </header>
 
+
+<!-- HERO SECTION -->
 <section class="hero">
-  <h1>नमस्ते बच्चों! 👋</h1>
-  <p>आइए आज गणित को आसान और मजेदार बनाते हैं।</p>
+
+  <h1 id="welcomeTitle">
+    नमस्ते बच्चों! 👋
+  </h1>
+
+  <p id="welcomeText">
+    आइए आज गणित को आसान और मजेदार बनाते हैं।
+  </p>
+
   <div class="hero-icon">🧮</div>
+
 </section>
+
 
 <main class="container">
 
-  <section class="stats">
-    <div class="stat-card">
-      <span>📝</span>
-      <h2 id="total">0</h2>
-      <p>कुल सवाल</p>
-    </div>
-    <div class="stat-card">
-      <span>⭐</span>
-      <h2 id="correct">0</h2>
-      <p>सही जवाब</p>
-    </div>
-    <div class="stat-card">
-      <span>🎯</span>
-      <h2 id="wrong">0</h2>
-      <p>गलत जवाब</p>
-    </div>
+  <!-- LANGUAGE SELECTOR -->
+  <section class="card language-card">
+
+    <h2 id="languageHeading">
+      🌐 भाषा चुनें / Choose Language
+    </h2>
+
+    <p id="languageDescription">
+      अपनी पसंद की भाषा चुनिए।
+    </p>
+
+    <select id="languageSelect" onchange="changeLanguage()">
+
+      <option value="hi">🇮🇳 हिंदी (Hindi)</option>
+
+      <option value="en">🇬🇧 English</option>
+
+    </select>
+
   </section>
 
+
+  <!-- STUDENT STATS -->
+  <section class="stats">
+
+    <div class="stat-card">
+
+      <span>📝</span>
+
+      <h2 id="total">0</h2>
+
+      <p id="totalLabel">कुल सवाल</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <span>⭐</span>
+
+      <h2 id="correct">0</h2>
+
+      <p id="correctLabel">सही जवाब</p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+      <span>🎯</span>
+
+      <h2 id="wrong">0</h2>
+
+      <p id="wrongLabel">गलत जवाब</p>
+
+    </div>
+
+  </section>
+
+
+  <!-- MULTIPLICATION TABLE -->
   <section class="card">
-    <h2>📖 पहाड़े सीखें (1 से 20)</h2>
-    <p>अपना पहाड़ा चुनिए और पढ़िए।</p>
+
+    <h2 id="tableHeading">
+      📖 पहाड़े सीखें (1 से 20)
+    </h2>
+
+    <p id="tableDescription">
+      अपना पहाड़ा चुनिए और पढ़िए।
+    </p>
 
     <select id="tableSelect"></select>
 
     <div id="tableResult" class="table-result"></div>
 
-    <button class="btn blue" onclick="readTable()">
+    <button class="btn blue" onclick="readTable()" id="tableSpeakBtn">
       🔊 पहाड़ा सुनें
     </button>
+
   </section>
 
+
+  <!-- MATH PRACTICE -->
   <section class="card">
-    <h2>➕ गणित का अभ्यास</h2>
-    <p>अपना गणित का विषय चुनिए।</p>
+
+    <h2 id="practiceHeading">
+      ➕ गणित का अभ्यास
+    </h2>
+
+    <p id="practiceDescription">
+      अपना गणित का विषय चुनिए।
+    </p>
+
 
     <div class="operations">
-      <button class="op-btn active" data-op="+" onclick="chooseOperation('+',this)">➕ जोड़</button>
-      <button class="op-btn" data-op="-" onclick="chooseOperation('-',this)">➖ घटाना</button>
-      <button class="op-btn" data-op="*" onclick="chooseOperation('*',this)">✖️ गुणा</button>
-      <button class="op-btn" data-op="/" onclick="chooseOperation('/',this)">➗ भाग</button>
+
+      <button class="op-btn active" data-op="+"
+        onclick="chooseOperation('+',this)">
+        ➕ जोड़
+      </button>
+
+      <button class="op-btn" data-op="-"
+        onclick="chooseOperation('-',this)">
+        ➖ घटाना
+      </button>
+
+      <button class="op-btn" data-op="*"
+        onclick="chooseOperation('*',this)">
+        ✖️ गुणा
+      </button>
+
+      <button class="op-btn" data-op="/"
+        onclick="chooseOperation('/',this)">
+        ➗ भाग
+      </button>
+
     </div>
 
+
     <div class="question-box">
-      <div class="question-label">आपका सवाल है:</div>
-      <h1 id="question">5 + 3 = ?</h1>
 
-      <input type="number" id="answer" placeholder="अपना जवाब लिखें">
+      <div class="question-label" id="questionLabel">
+        आपका सवाल है:
+      </div>
 
-      <button class="btn green" onclick="checkAnswer()">उत्तर चेक करें</button>
-      <button class="btn blue" onclick="speakQuestion()">🔊 सवाल सुनें</button>
+      <h1 id="question">
+        5 + 3 = ?
+      </h1>
+
+
+      <input
+        type="number"
+        id="answer"
+        placeholder="अपना जवाब लिखें"
+      >
+
+
+      <button class="btn green"
+        onclick="checkAnswer()"
+        id="checkBtn">
+        उत्तर चेक करें
+      </button>
+
+
+      <button class="btn blue"
+        onclick="speakQuestion()"
+        id="speakQuestionBtn">
+        🔊 सवाल सुनें
+      </button>
+
 
       <div id="feedback" class="feedback">
         चलिए शुरू करते हैं! 😊
       </div>
 
-      <button class="btn orange" onclick="newQuestion()">अगला सवाल ➜</button>
+
+      <button class="btn orange"
+        onclick="newQuestion()"
+        id="nextBtn">
+        अगला सवाल ➜
+      </button>
+
     </div>
+
   </section>
 
+
+  <!-- AI TEACHER -->
   <section class="card">
-    <h2>🤖 आपका AI Maths Teacher</h2>
+
+    <h2 id="teacherHeading">
+      🤖 आपका AI Maths Teacher
+    </h2>
+
+
     <div class="teacher">
-      <div class="robot">🤖</div>
-      <div>
-        <h3>मैथ्स टीचर</h3>
-        <p id="teacherMessage">नमस्ते बच्चे! मैं तुम्हें गणित सिखाने में मदद करूंगा।</p>
+
+      <div class="robot">
+        🤖
       </div>
+
+      <div>
+
+        <h3 id="teacherName">
+          मैथ्स टीचर
+        </h3>
+
+        <p id="teacherMessage">
+          नमस्ते बच्चे! मैं तुम्हें गणित सिखाने में मदद करूंगा।
+        </p>
+
+      </div>
+
     </div>
-    <button class="btn purple" onclick="speakTeacher()">🔊 टीचर की बात सुनें</button>
+
+
+    <button class="btn purple"
+      onclick="speakTeacher()"
+      id="teacherSpeakBtn">
+      🔊 टीचर की बात सुनें
+    </button>
+
   </section>
 
+
+  <!-- MATH QUIZ -->
   <section class="card">
-    <h2>🏆 अपना Maths Quiz खेलें</h2>
-    <p>सवालों के सही जवाब देकर अपना स्कोर बढ़ाइए।</p>
-    <button class="btn orange" onclick="newQuestion()">क्विज शुरू करें 🎮</button>
+
+    <h2 id="quizHeading">
+      🏆 अपना Maths Quiz खेलें
+    </h2>
+
+    <p id="quizDescription">
+      सवालों के सही जवाब देकर अपना स्कोर बढ़ाइए।
+    </p>
+
+    <button class="btn orange"
+      onclick="newQuestion()"
+      id="quizStartBtn">
+      क्विज शुरू करें 🎮
+    </button>
+
   </section>
+
 
 </main>
 
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Smart Maths Learning</p>
-  <p>Made for Young Learners ❤️</p>
+
+  <p id="footerText">
+    © 2026 Smart Maths Learning
+  </p>
+
+  <p id="footerSubText">
+    Made for Young Learners ❤️
+  </p>
+
 </footer>
 
+
+<!-- JAVASCRIPT -->
 <script src="script.js"></script>
+
 </body>
 </html>
